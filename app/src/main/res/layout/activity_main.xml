@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="edu.up.cs371.lytlech19.customfacemakerapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_dark"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/colorSeekBarsVerticalLayout"
+            android:layout_width="333dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ChangeColorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Change Color"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:id="@+id/ColorChangeHorizontalLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/RGBTextVerticalLayout"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/RedTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Red" />
+
+                    <TextView
+                        android:id="@+id/GreenTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Green" />
+
+                    <TextView
+                        android:id="@+id/BlueTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Blue" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/RGBSeekBarVerticalLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <SeekBar
+                        android:id="@+id/RedSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/darker_gray"
+                        android:max="255" />
+
+                    <SeekBar
+                        android:id="@+id/GreenSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/darker_gray"
+                        android:max="255" />
+
+                    <SeekBar
+                        android:id="@+id/BlueSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/darker_gray"
+                        android:max="255" />
+
+                    <TextView
+                        android:id="@+id/ColorValueTextDisplay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="R: 0  G: 0  B: 0 " />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facial Fetures "
+                android:textAlignment="center" />
+
+            <RadioGroup
+                android:id="@+id/RadioGroupID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:id="@+id/HairRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hair" />
+
+                <RadioButton
+                    android:id="@+id/EyesRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Eye" />
+
+                <RadioButton
+                    android:id="@+id/SkinRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Skin" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="159dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.66"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/HairStyleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hair Style "
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/HairStyleSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <edu.up.cs371.lytlech19.customfacemakerapp.FaceSurfaceView
+        android:id="@+id/DrawingSurfaceViewID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray" />
+
+</LinearLayout>
