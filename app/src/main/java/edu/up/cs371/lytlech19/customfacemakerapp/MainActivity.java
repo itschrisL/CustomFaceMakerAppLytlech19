@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -23,14 +24,15 @@ public class MainActivity extends AppCompatActivity {
     public RadioButton skinRB;
     public TextView colorsText;
     public RadioGroup facialRadioGroup;
-    public SurfaceView drawSurfaceView;
-    public FaceSurfaceView temp;
+    public Face faceSurfaceView;
+    public Button randButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set Views
         hairSpinner = (Spinner) findViewById(R.id.HairStyleSpinner);
         redSeek = (SeekBar) findViewById(R.id.RedSeekBar);
         greenSeek = (SeekBar) findViewById(R.id.GreenSeekBar);
@@ -40,29 +42,32 @@ public class MainActivity extends AppCompatActivity {
         skinRB = (RadioButton) findViewById(R.id.SkinRadioButton);
         colorsText = (TextView) findViewById(R.id.ColorValueTextDisplay);
         facialRadioGroup = (RadioGroup) findViewById(R.id.RadioGroupID);
-        drawSurfaceView = (SurfaceView) findViewById(R.id.DrawingSurfaceViewID);
-
-
-
-        String[] hairNames = {"Test 1", "Test 2", "Test 3"};
-        ArrayAdapter<String> hairAdapter = new ArrayAdapter<String>
-                (this, R.layout.support_simple_spinner_dropdown_item, hairNames);
+        faceSurfaceView = (Face) findViewById(R.id.DrawingSurfaceViewID);
+        randButton = (Button) findViewById(R.id.RandomButton);
+        // Make Array List
+        RadioButton[] radioButtons = {hairRB, eyeRB, skinRB};
+        SeekBar[] seekBars = {redSeek, greenSeek, blueSeek};
+        // Set Hair Style Spinner Adaptor
+        String[] hairNames = {"Spiked", "Pointy", "Emo", "Bold"};
+        ArrayAdapter<String> hairAdapter =
+                new ArrayAdapter<String> (this,
+                        R.layout.support_simple_spinner_dropdown_item, hairNames);
         hairSpinner.setAdapter(hairAdapter);
-
-
-        SeekBar[] sbList = {redSeek, greenSeek, blueSeek};
-        ColorChangeListener colorListener = new ColorChangeListener(sbList, colorsText);
+        // Set SeekBar & RadioButton ChangeListeners
+        ColorChangeListener colorListener =
+                new ColorChangeListener(seekBars, colorsText, facialRadioGroup, faceSurfaceView);
         redSeek.setOnSeekBarChangeListener(colorListener);
         greenSeek.setOnSeekBarChangeListener(colorListener);
         blueSeek.setOnSeekBarChangeListener(colorListener);
-
-
-        RadioButton[] radioButtons = {hairRB, eyeRB, skinRB};
-        SeekBar[] seekBars = {redSeek, greenSeek, blueSeek};
+        faceSurfaceView.setSeekBarsList(seekBars);
+        // Set RadioGroup CheckedListener
         hairRB.setChecked(true);
-        FacialRBListener facialRBListener = new FacialRBListener(facialRadioGroup, radioButtons, seekBars);
+        ColorChangeListener facialRBListener =
+                new ColorChangeListener(seekBars, colorsText, facialRadioGroup, faceSurfaceView);
         facialRadioGroup.setOnCheckedChangeListener(facialRBListener);
-
-
+        // Set RandomButton onClick Listener
+        RandomButtonClick buttonClick =
+                new RandomButtonClick(faceSurfaceView, seekBars, colorsText, hairSpinner);
+        randButton.setOnClickListener(buttonClick);
     }
 }

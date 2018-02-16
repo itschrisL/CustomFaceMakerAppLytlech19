@@ -25,7 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Change Color"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark" />
 
             <LinearLayout
                 android:id="@+id/ColorChangeHorizontalLayout"
@@ -44,19 +45,22 @@
                         android:id="@+id/RedTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Red" />
+                        android:text="Red"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <TextView
                         android:id="@+id/GreenTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Green" />
+                        android:text="Green"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <TextView
                         android:id="@+id/BlueTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Blue" />
+                        android:text="Blue"
+                        android:textColor="@color/colorPrimaryDark" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -90,7 +94,8 @@
                         android:id="@+id/ColorValueTextDisplay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="R: 0  G: 0  B: 0 " />
+                        android:text="R: 0  G: 0  B: 0 "
+                        android:textColor="@color/colorPrimaryDark" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -107,29 +112,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Facial Fetures "
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark" />
 
             <RadioGroup
                 android:id="@+id/RadioGroupID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <RadioButton
                     android:id="@+id/HairRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hair" />
+                    android:text="Hair"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <RadioButton
                     android:id="@+id/EyesRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Eye" />
+                    android:text="Eye"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <RadioButton
                     android:id="@+id/SkinRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Skin" />
+                    android:text="Skin"
+                    android:textColor="@color/colorPrimaryDark" />
             </RadioGroup>
         </LinearLayout>
 
@@ -144,18 +154,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hair Style "
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark" />
 
             <Spinner
                 android:id="@+id/HairStyleSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <Button
+                android:id="@+id/RandomButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                android:text="Randomize"
+                android:textColor="@android:color/holo_red_dark" />
+
         </LinearLayout>
 
     </LinearLayout>
 
-    <edu.up.cs371.lytlech19.customfacemakerapp.FaceSurfaceView
+    <edu.up.cs371.lytlech19.customfacemakerapp.Face
         android:id="@+id/DrawingSurfaceViewID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
