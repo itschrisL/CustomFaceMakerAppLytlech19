@@ -25,6 +25,7 @@ public class ColorChangeListener implements SeekBar.OnSeekBarChangeListener,
     // Instance Variables
     private RadioGroup radioGroup;
     private RadioButton[] buttonsList = new RadioButton[3];
+    private int buttonCheckIndex;
     private int[][] RGBValues = new int[3][3];
     private Face face;
     private SeekBar[] seekBars = new SeekBar[3];
@@ -52,6 +53,7 @@ public class ColorChangeListener implements SeekBar.OnSeekBarChangeListener,
      * General Initial Setup stuff
      */
     private void generalInit() {
+        buttonCheckIndex = 0;
         for (SeekBar bar : seekBars) {
             if (bar.getId() == R.id.RedSeekBar) {
                 this.redVal = bar.getProgress();
@@ -68,6 +70,7 @@ public class ColorChangeListener implements SeekBar.OnSeekBarChangeListener,
         for (i = 0; i < radioGroup.getChildCount(); i++) {
             buttonsList[i] = (RadioButton) radioGroup.getChildAt(i);
         }
+        face.random();
     }
 
     /**
@@ -84,10 +87,13 @@ public class ColorChangeListener implements SeekBar.OnSeekBarChangeListener,
         for (SeekBar bar : seekBars) {
             if (bar.getId() == R.id.RedSeekBar) {
                 this.redVal = bar.getProgress();
+                RGBValues[buttonCheckIndex][0] = redVal;
             } else if (bar.getId() == R.id.GreenSeekBar) {
                 this.greenVal = bar.getProgress();
+                RGBValues[buttonCheckIndex][1] = greenVal;
             } else if (bar.getId() == R.id.BlueSeekBar) {
                 this.blueVal = bar.getProgress();
+                RGBValues[buttonCheckIndex][2] = blueVal;
             }
         }
 
@@ -129,6 +135,7 @@ public class ColorChangeListener implements SeekBar.OnSeekBarChangeListener,
 
         for (i = 0; i < buttonsList.length; i++) {
             if (buttonsList[i].getId() == checkedID) {
+                buttonCheckIndex = i;
                 for (j = 0; j < seekBars.length; j++) {
                     seekBars[j].setProgress(RGBValues[i][j]);
 

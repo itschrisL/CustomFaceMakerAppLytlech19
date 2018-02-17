@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton[] radioButtons = {hairRB, eyeRB, skinRB};
         SeekBar[] seekBars = {redSeek, greenSeek, blueSeek};
         // Set Hair Style Spinner Adaptor
-        String[] hairNames = {"Spiked", "Pointy", "Emo", "Bold"};
+        String[] hairNames = {"Spiked", "Pointy", "Bold"};
         ArrayAdapter<String> hairAdapter =
                 new ArrayAdapter<String> (this,
                         R.layout.support_simple_spinner_dropdown_item, hairNames);

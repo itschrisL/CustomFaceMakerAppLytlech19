@@ -147,11 +147,20 @@ public class Face extends SurfaceView {
      */
     public int getHairColor(){return hairColor;}
 
+    /**
+     * Returns a rondom int Value for a RGB vaue
+     * Random between 0 to 255
+     * @return
+     */
     public int randomRGBValue(){
         Random rando = new Random();
         return rando.nextInt(255);
     }
 
+    /**
+     * Returns a random RGB value List
+     * @return
+     */
     public int[] randomRGB(){
         Random rando = new Random();
         int[] returnList = new int[3];
@@ -166,7 +175,10 @@ public class Face extends SurfaceView {
      * Randomly Set RGB variables
      */
     public void random(){
-        int redColorInt, greenColorInt, blueColorInt;
+        int redColorInt, greenColorInt, blueColorInt, i;
+        for(i = 0; i < RGBValues[0].length; i++){
+            RGBValues[i] = randomRGB();
+        }
 
     }
 
@@ -184,6 +196,7 @@ public class Face extends SurfaceView {
         int[] tempList = {20, 30, 60};
         setRGBValues(tempList, 0);
         this.ratio = faceRadius/5;
+        random();
     }
 
     /**
@@ -203,6 +216,18 @@ public class Face extends SurfaceView {
         }
 
     }
+
+    /**
+     * Draw Spiked Hair
+     */
+    public void drawSpikedHair(){
+
+    }
+
+    /**
+     * Draw Pointy Hair
+     */
+    public void drawPointyHair(){}
 
     /**
      * Draws Nose Given Canvas
@@ -227,7 +252,7 @@ public class Face extends SurfaceView {
      */
     public void drawFace(Canvas canvas){
         Paint whitePaint = new Paint();
-        whitePaint.setColor(Color.WHITE);
+        whitePaint.setColor(faceColor);
         canvas.drawCircle(xFaceCenter, yFaceCenter, faceRadius, whitePaint);
     }
 
@@ -273,7 +298,7 @@ public class Face extends SurfaceView {
 
         canvas.drawCircle(x, y, eyeRadius, whitePaint);
         //canvas.drawCircle(x, y, eyeRadius, blackPaint);
-        canvas.drawCircle(x, y, pupulRadius, bluePaint);
+        //canvas.drawCircle(x, y, pupulRadius, bluePaint);
 
 
     }

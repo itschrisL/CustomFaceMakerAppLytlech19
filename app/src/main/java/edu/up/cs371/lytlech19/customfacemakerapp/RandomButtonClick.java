@@ -22,7 +22,7 @@ public class RandomButtonClick implements Button.OnClickListener {
         this.seekBars = bars;
         this.RGBTextView = tv;
         this.hairStyleSpinner = spinner;
-        initUpdateText();
+        updateDisplay();
     }
 
     public void initUpdateText(){
